@@ -14,6 +14,8 @@ class RegisterController extends Controller
    }
 
    public function store(Request $request){
+  
+     
 
      $this->validate($request, [
             'name'=>     ['required', 'max:255'],
@@ -30,7 +32,12 @@ class RegisterController extends Controller
              'lastName'=>$request->lastName,
              'password'=> Hash::make($request->password)
          ]);
-       
-         return redirect()->route('register')->with(['success'=>'Has been saved']);
+                 
+
+        /* Storing auth with the helper */
+         auth()->attempt($request->only('email', 'password'));
+
+         return redirect()->route('dashboard')->with(['success'=>'Has been saved']);
+
    }
 }

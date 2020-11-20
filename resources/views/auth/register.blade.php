@@ -5,12 +5,10 @@
  <div class="flex justify-center">
       <div class="w-4/12 bg-white p-6 rounded-lg">
 
-        
-      
-     
+
         @if(Session::has('success'))
             <div class="w-8/12 bg-white p-6 rounded-lg">
-                {{ Session::get('success')}}
+                {{ Session::get('success') }}
             </div>
         @endif
     

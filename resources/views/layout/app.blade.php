@@ -14,10 +14,18 @@
           <li><a href="{{route('posts')}}" class="p-2">Post</a></li>
       </ul>
       <ul class="flex items-center ">
-           <li><a href="#" class="p-2">Javier</a></li>
-           <li><a href="#" class="p-2">Login</a></li>
-           <li><a href="{{route('register')}}" class="p-2">Register</a></li>
-           <li><a href="#" class="p-2">Logout</a></li>
+          @auth
+           <li><a href="#" class="p-2">{{ auth()->user()->name. ' ' . auth()->user()->lastName }}</a></li>
+           <li><a href="{{route('logout')}}" class="p-2">Logout</a></li>
+          @endauth 
+
+          @guest
+            <li><a href="{{route('login')}}" class="p-2">Login</a></li>
+            <li><a href="{{route('register')}}" class="p-2">Register</a></li>
+          @endguest
+          
+           
+           
       </ul>
     </nav>
      @yield('content')
