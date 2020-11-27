@@ -36,7 +36,13 @@
                      {{$message}}
                    </div>
                 @enderror
-             </div>             
+             </div>
+             <div class="mb-4">
+                <div class="flex items-center">
+                  <input type="checkbox" name="remember" id="remember" class="mr-2">
+                  <label for="remember">Remember me</label>
+                </div>
+            </div>              
              <button type="submit" class="bg-blue-500 hover:bg-blue-400 w-full px-4 py-3 rounded-lg text-white">Login</button>
          </form>
       </div>
